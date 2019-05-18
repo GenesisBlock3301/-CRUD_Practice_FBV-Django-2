@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}BooK List{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Pages</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for b in book %}
+            <tr>
+           <td>{{ b.name }}</td>
+           <td>{{ b.pages }}</td>
+           <td><a href="{% url 'view' b.id %}">view</a></td>
+           <td><a href="{% url 'edit' b.id %}">edit</a></td>
+           <td><a href="{% url 'delete' b.id %}">delete</a></td>
+           </td>
+        {% endfor %}
+        </tbody>
+    </table>
+<a href="#">New</a>
+{%  endblock %}
